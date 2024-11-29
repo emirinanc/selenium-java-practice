@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The root configuration element that all Logback configs must have -->
+<configuration>
+    <!-- Console appender definition - this handles output to your terminal -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- The encoder determines how your log messages will look -->
+        <encoder>
+            <!-- The pattern defines the format of each log message -->
+            <!-- %d = timestamp, %thread = thread name, %-5level = log level, %logger = class name, %msg = your message -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File appender definition - this handles output to a file -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- Specify where to save the log file -->
+        <file>test-output/test-execution.log</file>
+        <!-- false means create a new file each time, true would append to existing file -->
+        <append>false</append>
+        <encoder>
+            <!-- Using the same pattern as console for consistency -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Set specific logging levels for your packages -->
+    <!-- These match your actual package names -->
+    <logger name="utils" level="INFO"/>
+    <logger name="gui" level="INFO"/>
+
+    <!-- Root logger - sets the base configuration for all logging -->
+    <root level="INFO">
+        <!-- Reference both appenders to send output to console and file -->
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

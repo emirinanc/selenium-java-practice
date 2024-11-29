@@ -1,0 +1,4 @@
+14:28:36.923 [main] INFO  utils.TestListener - Test Starting: testHomePageLoaded
+14:28:37.781 [main] INFO  utils.TestListener - Test Starting: testCareersPage
+14:28:40.184 [main] INFO  utils.TestListener - Test Starting: testQAJobsFiltering
+14:28:43.705 [main] INFO  utils.TestListener - Test Starting: testJobApplicationRedirection
